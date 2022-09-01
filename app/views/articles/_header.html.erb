@@ -1,0 +1,28 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light shadow">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Web Application</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">Home</a>
+        </li>
+      </ul>
+  <% if current_user.present? %>   
+    <%= link_to "Log Out", logout_path,class:"btn btn-primary" %> &nbsp; 
+    <%= link_to "Add Article",new_article_path, class: "btn btn-primary"%>
+    <%= link_to "User List",users_path, class: "btn btn-primary indexbtn"%>
+  <% else %>  
+    <%= link_to "Sign Up", signup_path ,class: "btn btn-primary"%>&nbsp;
+    <%= link_to "Log In", login_path , class: "btn btn-primary"%>  
+  <% end %>  
+<% flash.each do |key, value| %>  
+  <%= content_tag(:div, class: "alert alert-#{key}") do %>  
+    <p><%= value %></p>  
+  <% end %>  
+<% end %>  
+    </div>
+  </div>
+</nav>

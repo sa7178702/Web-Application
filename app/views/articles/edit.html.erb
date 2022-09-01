@@ -1,0 +1,20 @@
+<div class="container">
+	<div class="row">
+		<div class="col-sm-3"></div>
+		<div class="col-sm-6"><br><br>
+			<%= form_for @article do |form|%>
+				<%= form.label :Title %>
+				<%= form.text_field :title, class: "form-control"%>	
+				<%= form.label :Description %>
+				<%= form.text_field :description, class: "form-control"%>
+				<%= form.label :Image %>
+				<%= form.file_field :main_image, class: "form-control"%><br>
+				<%= form.submit "Update" , class: "btn btn-primary"%>
+				<%= link_to "Back",article_path, class: "btn btn-success"%>
+				<br><br>
+			<% end %>
+		</div>
+		<div class="col-sm-3"></div>
+	</div>
+
+</div>

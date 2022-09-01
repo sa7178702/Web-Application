@@ -1,0 +1,28 @@
+<div class="container">
+<h5 class="Center">Dashboard</h5>
+	<div class="row m-3">
+		<div class="col-sm-4"></div>
+		<div class="col-sm-4">
+			<% @user.each do |user|%>
+			<div class="card" style="width: 18rem;">
+				<div class="card-body">
+				<h5 class="card-title ucenter"><%= user.name %></h5>
+				<p class="card-text ucenter"><%=user.email %></p>
+				<p class="card-text ucenter"><%=user.address %></p>
+				<p class="card-text ucenter"><%=user.mobno %></p>
+				<p class="card-text"><small class="text-muted">Create time <%= user.created_at%></small></p>
+				<p class="card-text"><small class="text-muted">Last Update <%= user.updated_at%></small></p>
+				</div>
+				<%= link_to "SHOW",user_path(user), class: "btn btn-primary SHOWBTN"%>
+			</div>
+			<% end %>
+		</div>
+		<div class="col-sm-4"></div>
+	</div>
+</div>
+<div class="digg_pagination">
+    <div class="page_info">
+     <%= page_entries_info @user %>
+    </div>
+    <%= will_paginate @user, :container => false %>
+  </div>
