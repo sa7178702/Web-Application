@@ -17,6 +17,7 @@ gem 'bootstrap', '~> 5.2.0'
 
 gem 'jquery-rails'
 
+gem 'rails_12factor'
 gem 'sass-rails'
 gem 'sass-listen', '~> 4.0'
 
