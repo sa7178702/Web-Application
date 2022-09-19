@@ -11,6 +11,7 @@ gem "sprockets-rails"
 
 # Use sqlite3 as the database for Active Record
 
+gem 'bcrypt', '~> 3.1.7'
 
 gem 'bootstrap', '~> 5.2.0'
 
@@ -83,5 +84,5 @@ end
 
 group :production do 
   gem 'pg' , '0.17.1'
-  gem 'rails_12factor', '0.0.2'
+
 end

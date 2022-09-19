@@ -2,28 +2,19 @@ class UsersController < ApplicationController
    
    def index
     @user = User.all
-    @user = @user.paginate(page: params[:page], per_page: 1)
+    @user = @user.paginate(page: params[:page], per_page: 2)
   end
 
   def new
     @user = User.new
   end
 
-  # def create
-  #   @user = User.new(user_params)
-  #    if @user.save
-  #     redirect_to users_path
-  #   else
-  #     render :new
-  #   end
-  # end
-
   def create   
-    @user = User.new(user_params)
-    byebug   
+    @user = User.new(user_params)  
     if @user.save   
       session[:user_id] = @user.id   
-      redirect_to root_url#, notice: 'User successfully created.'   
+      redirect_to root_url 
+       flash[:notice] = "User successfully created."
     else   
       render :new   
     end 
@@ -32,6 +23,7 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
   end
+
   def edit
     @user = User.find(params[:id])
   end
@@ -40,6 +32,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
      if @user.update(user_params)
       redirect_to user_path
+      flash[:notice] = "User successfully updated."
     else
       render :edit
     end
@@ -49,6 +42,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
      if @user.destroy
       redirect_to user_path(@user)
+      flash[:notice] = "User successfully destroy."
     end
   end
 

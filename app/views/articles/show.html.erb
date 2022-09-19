@@ -3,7 +3,8 @@
 		<div class="col-sm-6">
 			<h4 class="heading"><%= @article.title %></h4>
 			<p><%= @article.description %></p><br><br>
-		<% if current_user.present?%>
+			<% byebug %>
+		<% if current_user.id == @article.user_id%>
 			<%= link_to "Update",edit_article_path(@article), class: "btn btn-info BTN"%>
 			<%= link_to "Destroy", article_path(@article.id), data: {
                     turbo_method: :delete,

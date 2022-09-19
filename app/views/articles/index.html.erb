@@ -11,7 +11,7 @@
 				<p class="card-text"><small class="text-muted">Create time <%= article.created_at%></small></p>
 				<p class="card-text"><small class="text-muted">Last Update <%= article.updated_at%></small></p>
 				<% if article.user.present?%>
-				<%=article.user.name%>
+				  <b>Created By : </b><%= article.user.name%>
 				<% end %>
 				<%= link_to "SHOW",article_path(article), class: "btn btn-primary SHOWBTN"%><br><br>
 				</div>

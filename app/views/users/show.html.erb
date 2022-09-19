@@ -7,12 +7,17 @@
 			<p><%= @user.address %></p>
 			<p><%= @user.mobno %></p>
 			<br><br>
-			<%= link_to "Update",edit_user_path(@user), class: "btn btn-info"%>
-			<%= link_to "Destroy", user_path(@user), data: {
-                    turbo_method: :delete,
-                    turbo_confirm: "Are you sure?"
-                  },class: "btn btn-danger" %>
-			<%= link_to "Back",users_path, class: "btn btn-success"%>
+			<% #byebug %>
+			<%# if current_user.id == @user.id%>
+				<%= link_to "Update",edit_user_path(@user), class: "btn btn-info"%>
+				<%= link_to "Destroy", user_path(@user), data: {
+	                    turbo_method: :delete,
+	                    turbo_confirm: "Are you sure?"
+	                  },class: "btn btn-danger" %>
+				<%= link_to "Back",users_path, class: "btn btn-success"%>
+			<%# else%>
+				<%#= link_to "Back",users_path, class: "btn btn-success"%>
+			<%# end %>
 		</div>
 		<div class="col-sm-3"><br>
 		 <%= image_tag(@user.main_image) if @user.main_image.attached?%>	

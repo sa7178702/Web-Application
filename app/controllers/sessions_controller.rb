@@ -1,23 +1,24 @@
 class SessionsController < ApplicationController
 
-
   def new  
-    user = User.new
   end 
 
   def create  
+    byebug
     user = User.find_by_email(params[:email])   
-    if  user.password == params[:password]
+    #if user && user.authenticate(params[:password]) 
+    if user.password == params[:password]
       session[:user_id] = user.id   
-      redirect_to root_url, success: 'Logged in!'   
+      redirect_to root_path
+      flash[:notice] = "User Login In "  
     else   
-      flash[:success] = "password not match fill currect password"  
     end   
   end  
 
   def destroy   
     session[:user_id] = nil   
-    redirect_to root_url, danger: 'Logged out!'   
+    redirect_to root_path
+    flash[:alert] = "Logged out!"  
   end   
 
 end

@@ -1,7 +1,21 @@
-<% if flash.any? %>
-<% flash.each do |type, msg| %>
-<div class=”alert alert-<%= type %>”>
-<%= msg %>
-</div>
+<% if notice %>
+  <center><div class="alert alert-info alert-dismissible fade show m-1 box" role="alert" id="flash">
+    <%= notice %>
+  </div></center>
 <% end %>
+
+<% if alert %>
+  <center><div class="alert alert-warning alert-dismissible fade show m-1 box" role="alert">
+    <%= alert %>
+  </div></center>
 <% end %>
+
+<script>
+  $(document).ready(function(){
+    setTimeout(function() {
+      $('.box').fadeOut("slow", function() {
+        $(this).remove();
+      })
+    }, 4500);
+  });
+</script>

@@ -6,9 +6,10 @@
 				<%= form.label :Title %>
 				<%= form.text_field :title, class: "form-control"%>	
 				<%= form.label :Description %>
-				<%= form.text_field :description, class: "form-control"%>
+				<%= form.text_area :description, class: "form-control"%>
 				<%= form.label :User_Id %>
-				<%= form.select :user_id, User.all.collect { |p| [p.name, p.id ] }, include_blank: true ,class:"form-control"%><br>	
+				<%= form.text_field :user_id,value: current_user.id, class: "form-control" %>
+				<%#= form.select :user_id, User.all.collect { |p| [p.name, p.id ] }, include_blank: true ,class:"form-control"%><br>	
 				<%= form.label :Image %>
 				<%= form.file_field :main_image, class: "form-control"%><br>
 				<%= form.submit "Submit" , class: "btn btn-primary"%>
