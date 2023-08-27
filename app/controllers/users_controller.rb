@@ -38,12 +38,33 @@ class UsersController < ApplicationController
     end
   end
 
-   def destroy
+  def destroy
     @user = User.find(params[:id])
      if @user.destroy
       redirect_to user_path(@user)
       flash[:notice] = "User successfully destroy."
     end
+  end
+
+  def download
+     pdf = Prawn::Document.new
+     pdf.text("Prawn Rocks")
+     send_data(pdf.render,
+      filenme: 'hello.pdf',
+      type: 'application/pdf')
+  end
+
+  def pdf
+    @user = User.all
+     pdf = Prawn::Document.new
+     pdf.text @user.id,
+
+     send_data(pdf.render,
+      filenme: "#{@user}.pdf",
+      type: 'application/pdf')
+  end
+
+  def preview
   end
 
  private

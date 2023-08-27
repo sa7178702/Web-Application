@@ -1,5 +1,5 @@
 <div class="container">
-<h5 class="Center">Dashboard</h5>
+<h5 class="Center">Dashpoard</h5>
 	<div class="row m-3">
 		<div class="col-sm-4"></div>
 		<div class="col-sm-4">
@@ -21,7 +21,8 @@
 		<div class="col-sm-4">
 			 <% if current_user.present?%>
 			 <%= image_tag(User.find(current_user.id).main_image,class: "user_img") if User.find(current_user.id).main_image.attached?%><br>
-			 <b class="user_name"><%= User.find(current_user.id).name  %></b>
+			 <b class="user_name"><%= User.find(current_user.id).name  %></b> 
+			 <b class="user_name">Article:<%= current_user.articles.count%></b>
 			 <% end %>
 		</div>
 	</div>

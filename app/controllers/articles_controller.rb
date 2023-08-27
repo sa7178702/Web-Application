@@ -30,7 +30,7 @@ class ArticlesController < ApplicationController
   def update
     @article = Article.find(params[:id])
      if @article.update(article_params)
-      redirect_to articles_path
+      redirect_to articles_path, notice: 'Update Article!'
     else
       render :edit
     end
@@ -39,7 +39,7 @@ class ArticlesController < ApplicationController
    def destroy
     @article = Article.find(params[:id])
      if @article.destroy
-      redirect_to articles_path(@article)
+      redirect_to articles_path(@article), notice: 'Article destroy!'
     end
   end
 

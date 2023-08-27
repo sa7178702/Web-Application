@@ -15,6 +15,8 @@ gem 'bcrypt', '~> 3.1.7'
 
 gem 'bootstrap', '~> 5.2.0'
 
+gem 'prawn', '~> 2.1'
+
 gem 'jquery-rails'
 
 gem 'rails_12factor'
@@ -67,6 +69,7 @@ group :development do
   # Use console on exceptions pages [https://github.com/rails/web-console]
   gem "web-console"
   gem "sqlite3", "~> 1.4"
+  gem 'pry'
 
   gem 'byebug'
   # Add speed badges [https://github.com/MiniProfiler/rack-mini-profiler]

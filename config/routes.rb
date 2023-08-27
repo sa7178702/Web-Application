@@ -6,6 +6,11 @@ Rails.application.routes.draw do
  # get 'articles/index'
   root 'articles#index'
 
+  get 'download', to: 'users#download' 
+  get 'preview', to: 'users#preview' 
+
+  get 'user/pdf/:id', to: 'users#pdf', as: 'post_pdf'
+
  resources :sessions, only: [:new, :create, :destroy]  
   get 'signup', to: 'users#new', as: 'signup'  
   get 'login', to: 'sessions#new', as: 'login'  
